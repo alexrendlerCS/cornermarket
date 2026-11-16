@@ -1,0 +1,596 @@
+<title>Corner Market Lincolnville</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Corner Market at Lincolnville, 97 M.L. King Ave., St. Augustine, FL. Neighborhood market and home of Royal Beets: handcrafted beet relishes, beet honey, chocolates, baked goods, art and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra&family=Caveat+Brush&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GroceryStore",
+  "name": "Corner Market at Lincolnville",
+  "description": "Neighborhood market in historic Lincolnville and home of Royal Beets handcrafted beet products.",
+  "telephone": "+1-407-595-5853",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "97 M.L. King Ave.",
+    "addressLocality": "St. Augustine",
+    "addressRegion": "FL",
+    "postalCode": "32084",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Nyk Regine" },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"]
+  }],
+  "brand": { "@type": "Brand", "name": "Royal Beets", "slogan": "The Caviar of Root Vegetables" }
+}
+</script>
+<style>
+/* Layout: the shop sign is the hero. Black ground, the sign's yellow for identity,
+   the front door's red only for a few focal points. Left-aligned, editorial columns. */
+:root {
+  --bg: #111111;          /* near-black foundation */
+  --surface: #1C1C1C;     /* charcoal panels */
+  --line: #2E2C27;        /* warm hairline, biased toward yellow */
+  --yellow: #E4C15A;      /* faded sign yellow, matched to the painted sign */
+  --yellow-ink: #111111;  /* text on yellow */
+  --red: #B8286B;         /* beet red: buttons outline, badges (white text on it passes AA) */
+  --beet: #B8286B;        /* hand-drawn marks: squiggles, circles, arrows */
+  --font-hand: "Caveat Brush", "Bradley Hand", "Segoe Print", cursive;
+  --text: #FFFFFF;
+  --muted: #B8B8B8;
+  --font-sign: "Ultra", "Rockwell Extra Bold", "Rockwell", Georgia, serif;
+  --font-body: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --step--1: .875rem; --step-0: 1.0625rem; --step-1: 1.3rem; --step-2: 1.75rem;
+  --step-3: clamp(2rem, 4.5vw, 3rem); --step-4: clamp(2.6rem, 7vw, 4.75rem);
+  --wrap: 1180px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.1; margin: 0; }
+h2 { font-family: var(--font-sign); font-weight: 400; font-size: var(--step-3); color: var(--yellow); letter-spacing: .01em; }
+h3 { font-size: var(--step-1); font-weight: 800; }
+p { margin: 0; }
+.wrap {
+  max-width: var(--wrap); margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 16px; z-index: 20; background: var(--yellow); color: var(--yellow-ink); padding: .5rem 1rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: .75rem 1.4rem; border-radius: 4px;
+  font: 800 1rem/1 var(--font-body); text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: background-color .15s ease, color .15s ease, transform .1s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--yellow); color: var(--yellow-ink); }
+.btn-primary:hover { background: #EDD27E; }
+.btn-ghost { border-color: var(--yellow); color: var(--yellow); background: transparent; }
+.btn-ghost:hover { background: var(--yellow); color: var(--yellow-ink); }
+/* The red front door: one button per page gets it */
+.btn-door { position: relative; background: transparent; color: var(--text); border-color: transparent; }
+.btn-door:hover { background: var(--red); color: #fff; }
+.btn-door > .ring { left: -4px; top: -4px; width: calc(100% + 8px); height: calc(100% + 8px); }
+.btn-door > .ring path { stroke-width: 3; }
+
+/* ---------- Header ---------- */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
+.mini-sign {
+  font-family: var(--font-sign); color: var(--yellow); text-decoration: none; font-size: 1.15rem;
+  border: 2px solid var(--yellow); padding: .2rem .6rem .1rem; border-radius: 3px; white-space: nowrap; line-height: 1.3;
+}
+.nav { display: flex; align-items: center; gap: 1.5rem; }
+.nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .98rem; }
+.nav a:not(.btn):hover { color: var(--yellow); }
+.nav a.nav-beets { color: var(--text); font-weight: 800; }
+/* hover/focus a nav link and a beet circle draws itself around it */
+.nav .hover-ring path { stroke-width: 3; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .45s cubic-bezier(.4,0,.2,1); }
+.nav a:hover .hover-ring path, .nav a:focus-visible .hover-ring path { stroke-dashoffset: 0; }
+.nav a.marked:focus-visible { outline: none; }
+.nav .btn { min-height: 40px; padding: .55rem 1rem; font-size: .95rem; }
+@media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 6rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.sign {
+  display: inline-block; background: #161616; border: 5px solid var(--yellow);
+  padding: clamp(1rem, 2.5vw, 1.6rem) clamp(1.2rem, 3vw, 2.2rem) clamp(.8rem, 2vw, 1.2rem);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px var(--line);
+}
+.hero-grid > div:first-child { container-type: inline-size; min-width: 0; }
+.sign { max-width: 100%; }
+/* size the letters to the column, not the window, so the sign never spills into the photo */
+.sign h1 { font-family: var(--font-sign); font-weight: 400; color: var(--yellow); font-size: clamp(2.2rem, 9cqi, 5.4rem); line-height: .95; letter-spacing: .02em; }
+.sign .row { display: block; white-space: nowrap; }
+.sign .row + .row { padding-left: .9em; }
+/* hand-cut letters, each hung a little off true, like the plywood original */
+.l { display: inline-block; transform: translateY(var(--y, 0)) rotate(var(--r, 0deg)); }
+.l.s { font-size: .74em; }
+@media (prefers-reduced-motion: no-preference) {
+  .sign .l { animation: hang .7s cubic-bezier(.2,.9,.3,1.2) both; animation-delay: calc(var(--i) * 45ms); }
+  @keyframes hang { from { transform: translateY(-.35em) rotate(0deg); opacity: .2; } }
+}
+
+.hero-copy { display: grid; gap: 1.5rem; margin-top: 2rem; max-width: 34rem; }
+.hero-lede { font-size: var(--step-1); line-height: 1.45; color: var(--text); }
+.hero-lede strong { color: var(--yellow); font-weight: 800; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.hero-meta { color: var(--muted); font-size: var(--step--1); }
+
+.hero-photo { margin: 0; }
+.photo-frame { position: relative; }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 38% 62%; border-radius: 4px; }
+.crown-badge {
+  position: absolute; left: -14px; bottom: 18px; background: var(--red); color: #fff;
+  font-weight: 800; font-size: .95rem; padding: .55rem .95rem; border-radius: 3px; transform: rotate(-3deg);
+}
+@media (max-width: 860px) { .crown-badge { left: 10px; } }
+figcaption, .credit { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
+
+/* ---------- Yellow band ---------- */
+.band { background: var(--yellow); color: var(--yellow-ink); }
+.band .wrap { padding-block: clamp(2rem, 4vw, 3rem); display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 2rem; }
+.band p:first-child { font-family: var(--font-sign); font-size: clamp(1.7rem, 4.6vw, 3.1rem); line-height: 1.05; }
+.band p:last-child { font-weight: 600; font-size: var(--step-1); }
+
+/* ---------- Royal Beets ---------- */
+.beets { background: var(--surface); padding-block: clamp(4rem, 8vw, 7rem); }
+.beets-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+@media (max-width: 860px) { .beets-intro { grid-template-columns: 1fr; } }
+.kicker { color: var(--muted); font-weight: 600; margin-bottom: .6rem; }
+.beets-story { display: grid; gap: 1.1rem; max-width: 36rem; }
+.beets-story h2 { margin-bottom: .4rem; }
+.beets-story p { color: var(--muted); }
+.beets-story p.lead { color: var(--text); font-size: var(--step-1); line-height: 1.45; }
+.signature { color: var(--yellow); font-weight: 800; }
+/* the jar shelf photo is a wide strip, so it runs full width on top with two squares below */
+.beets-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.beets-figs figure { margin: 0; min-width: 0; }
+.beets-figs img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.beets-figs .wide { grid-column: 1 / -1; position: relative; }
+.beets-figs .wide img { aspect-ratio: 2.6 / 1; object-position: 40% 45%; }
+.beets-figs .sq img { aspect-ratio: 1 / 1; }
+
+.count { display: flex; align-items: baseline; gap: 1rem; margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.count b { font-family: var(--font-sign); font-weight: 400; color: var(--yellow); font-size: clamp(3rem, 8vw, 5rem); line-height: 1; }
+.count span { color: var(--muted); max-width: 26rem; }
+
+.lineup { list-style: none; padding: 0; margin: 2.5rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+@media (max-width: 900px) { .lineup { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .lineup { grid-template-columns: 1fr; } }
+.lineup li { padding: 1.5rem 1.5rem 1.6rem 0; border-bottom: 1px solid var(--line); display: grid; gap: .45rem; align-content: start; }
+.lineup h3 { color: var(--text); }
+.lineup p { color: var(--muted); font-size: .98rem; }
+.lineup .tag { color: var(--yellow); font-size: .85rem; font-weight: 600; }
+
+.not-in { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; align-items: center; }
+@media (max-width: 760px) { .not-in { grid-template-columns: 1fr; } }
+.not-in h3 { font-family: var(--font-sign); font-weight: 400; font-size: var(--step-2); color: var(--yellow); }
+.not-in ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.not-in li { border: 1px solid var(--line); border-radius: 999px; padding: .45rem 1rem; color: var(--muted); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+.not-in .note { grid-column: 1 / -1; color: var(--muted); }
+
+/* ---------- Shelves ---------- */
+.shelves { padding-block: clamp(4rem, 8vw, 7rem); }
+.shelves-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: end; margin-bottom: 2.5rem; }
+.shelves-head p { color: var(--muted); max-width: 32rem; }
+@media (max-width: 760px) { .shelves-head { grid-template-columns: 1fr; } }
+.shelf-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
+@media (max-width: 860px) { .shelf-grid { grid-template-columns: 1fr; } }
+.shelf-grid figure { margin: 0; }
+.shelf-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+.aisles { list-style: none; margin: 0; padding: 0; display: grid; }
+.aisles li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+.aisles li:first-child { padding-top: 0; }
+.aisles strong { color: var(--yellow); font-weight: 800; }
+.aisles span { color: var(--muted); }
+@media (max-width: 480px) { .aisles li { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* ---------- Building ---------- */
+.building { background: var(--surface); padding-block: clamp(4rem, 8vw, 7rem); }
+.building-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 860px) { .building-grid { grid-template-columns: 1fr; } }
+.building figure { margin: 0; }
+.building img { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 4px; }
+.building-copy { display: grid; gap: 1.1rem; }
+.building-copy p { color: var(--muted); }
+.past { list-style: none; margin: .5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; font-weight: 800; }
+.past li:not(:last-child)::after { content: "›"; color: var(--muted); margin-left: .6rem; font-weight: 400; }
+.past li:last-child { color: var(--yellow); }
+
+/* ---------- Visit + order ---------- */
+.visit { padding-block: clamp(4rem, 8vw, 7rem); }
+.visit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+@media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+.visit-info { display: grid; gap: 1.8rem; }
+.facts { display: grid; gap: 1.4rem; margin: 0; }
+.facts dt { color: var(--muted); font-size: .9rem; font-weight: 600; }
+.facts dd { margin: .2rem 0 0; font-size: var(--step-1); font-weight: 600; }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: .25rem 1.5rem; font-size: 1.05rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.hours .closed { color: var(--muted); }
+.phone-row { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
+.copy-btn { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 4px; padding: .35rem .7rem; font: 600 .85rem var(--font-body); cursor: pointer; min-height: 36px; }
+.copy-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+.visit-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+.draft { display: inline-block; border: 1px dashed var(--yellow); color: var(--yellow); font-size: .8rem; font-weight: 600; padding: .1rem .5rem; border-radius: 3px; vertical-align: middle; }
+
+.order { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: clamp(1.4rem, 3.5vw, 2.4rem); display: grid; gap: 1.3rem; }
+.order h2 { font-size: var(--step-2); }
+.order > p { color: var(--muted); }
+.field { display: grid; gap: .4rem; }
+.field label, fieldset legend { font-weight: 600; font-size: .95rem; }
+.field input, .field textarea {
+  width: 100%; background: var(--bg); color: var(--text); border: 1px solid #45423a; border-radius: 4px;
+  padding: .75rem .85rem; font: 400 1rem var(--font-body); min-height: 48px;
+}
+.field textarea { min-height: 7rem; resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--yellow); outline-offset: 1px; border-color: var(--yellow); }
+.field input[aria-invalid="true"] { border-color: var(--red); }
+.err { color: #FF8A80; font-size: .88rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .6rem; }
+.checks { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip span { display: inline-flex; align-items: center; min-height: 40px; padding: .4rem .9rem; border: 1px solid #45423a; border-radius: 999px; color: var(--muted); cursor: pointer; font-size: .95rem; user-select: none; }
+.chip input:checked + span { background: var(--yellow); border-color: var(--yellow); color: var(--yellow-ink); font-weight: 600; }
+.chip input:focus-visible + span { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.status { border-left: 3px solid var(--yellow); padding: .6rem .9rem; background: var(--bg); color: var(--text); }
+
+/* ---------- Hand-drawn beet marks ---------- */
+.doodle { position: absolute; overflow: visible; pointer-events: none; }
+.doodle path { fill: none; stroke: var(--beet); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.marked { position: relative; display: inline-block; white-space: nowrap; }
+.marked > .u { left: -3%; width: 106%; bottom: -.38em; height: .5em; }
+.marked > .o { left: -.55em; top: -.4em; width: calc(100% + 1.1em); height: calc(100% + .8em); }
+html.js-draw .doodle path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js-draw .doodle.in path { animation: draw .9s cubic-bezier(.45,0,.25,1) forwards; animation-delay: var(--d, 0s); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { html.js-draw .doodle path { stroke-dashoffset: 0; } }
+
+.hand { font-family: var(--font-hand); font-weight: 400; color: var(--beet); line-height: 1.1; }
+.hero-photo .note { position: absolute; right: 4px; top: -3.4rem; display: flex; align-items: flex-end; gap: .2rem; font-size: 1.5rem; transform: rotate(-4deg); }
+.hero-photo .note .doodle { position: static; width: 54px; height: 44px; margin-bottom: -1.2rem; }
+@media (max-width: 860px) { .hero-photo { margin-top: 3.5rem; } }
+.crown { position: absolute; left: 50%; top: -1.55rem; width: 40px; height: 30px; transform: translateX(-50%) rotate(6deg); }
+.crown path { stroke: var(--yellow); stroke-width: 3; }
+.crown-badge { overflow: visible; }
+
+.signature { font-family: var(--font-hand); font-weight: 400; color: var(--text); font-size: clamp(1.8rem, 4vw, 2.4rem); margin-top: .6rem; }
+.signature .marked > .u { height: .45em; bottom: -.3em; }
+.kicker.hand { font-size: 1.6rem; margin-bottom: .1rem; color: var(--beet); }
+.beets-story h2 .marked > .u path { stroke-width: 5; }
+.count b.marked > .o path { stroke-width: 3.5; }
+.not-in li { text-decoration-color: var(--beet); text-decoration-thickness: 3px; }
+.band .marked > .u path { stroke-width: 5; }
+.jar-note { position: absolute; left: 10px; bottom: 10px; background: var(--bg); padding: .15rem .6rem .25rem; border-radius: 3px; font-size: 1.3rem; transform: rotate(-3deg); color: var(--yellow); }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--line); }
+.site-footer .wrap { padding-block: 2.5rem 3rem; display: grid; gap: 1.5rem; }
+.foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+.site-footer p { color: var(--muted); font-size: .9rem; }
+.site-footer a { color: var(--yellow); }
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="mini-sign" href="#top" aria-label="Corner Market, back to top">Corner Market</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#royal-beets" class="marked nav-beets">Royal Beets<svg class="doodle hover-ring o" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 10 C 80 1, 170 4, 192 22 C 204 42, 152 57, 98 55 C 42 54, 4 45, 7 29 C 10 13, 50 5, 114 7 C 144 8, 164 11, 178 16"/></svg></a>
+      <a href="#shelves" class="marked">In the shop<svg class="doodle hover-ring o" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 10 C 80 1, 170 4, 192 22 C 204 42, 152 57, 98 55 C 42 54, 4 45, 7 29 C 10 13, 50 5, 114 7 C 144 8, 164 11, 178 16"/></svg></a>
+      <a href="#building" class="marked">Our building<svg class="doodle hover-ring o" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 10 C 80 1, 170 4, 192 22 C 204 42, 152 57, 98 55 C 42 54, 4 45, 7 29 C 10 13, 50 5, 114 7 C 144 8, 164 11, 178 16"/></svg></a>
+      <a class="btn btn-primary" href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="sign">
+          <h1 aria-label="Corner Market">
+            <span class="row" aria-hidden="true"><span class="l" style="--i:0;--r:-4deg">C</span><span class="l s" style="--i:1;--y:.06em;--r:5deg">o</span><span class="l s" style="--i:2;--y:-.04em;--r:-6deg">r</span><span class="l" style="--i:3;--y:.05em;--r:3deg">N</span><span class="l s" style="--i:4;--y:-.08em;--r:-3deg">e</span><span class="l" style="--i:5;--y:.03em;--r:6deg">R</span></span>
+            <span class="row" aria-hidden="true"><span class="l" style="--i:6;--r:3deg">M</span><span class="l s" style="--i:7;--y:.07em;--r:-5deg">a</span><span class="l" style="--i:8;--y:-.05em;--r:4deg">R</span><span class="l" style="--i:9;--y:.04em;--r:-4deg">K</span><span class="l" style="--i:10;--y:-.06em;--r:5deg">E</span><span class="l s" style="--i:11;--y:.05em;--r:-3deg">t</span></span>
+          </h1>
+        </div>
+        <div class="hero-copy">
+          <p class="hero-lede">Lincolnville's neighborhood market on M.L. King Avenue, and the home of <strong class="marked">Royal Beets<svg class="doodle o" style="--d:.6s" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M34 9 C 85 0, 172 3, 193 23 C 206 43, 150 58, 96 56 C 40 55, 3 46, 6 28 C 9 12, 48 4, 112 6 C 142 7, 162 10, 176 15"/></svg></strong>: handmade beet relishes, honey, sweets and more.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#royal-beets">See Royal Beets</a>
+            <a class="btn btn-door" href="https://www.google.com/maps/search/?api=1&amp;query=97+M.L.+King+Ave+St.+Augustine+FL+32084" target="_blank" rel="noopener">Get directions<svg class="doodle ring" style="--d:1.25s" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 5 C 60 2, 140 3, 196 6 C 198 22, 197 40, 195 55 C 140 58, 60 57, 4 55 C 2 40, 3 22, 6 3 L 30 4"/></svg></a>
+          </div>
+          <p class="hero-meta">97 M.L. King Ave., St. Augustine, FL. Open Tuesday to Saturday.</p>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <div class="photo-frame">
+        <img src="img/exterior.jpg" alt="The Corner Market: a white clapboard building with a black and yellow hand-lettered sign and a red front door, under palm and oak trees." width="1300" height="780">
+        <span class="crown-badge"><svg class="doodle crown" style="--d:1.9s" viewBox="0 0 60 44" aria-hidden="true"><path pathLength="1" d="M8 38 L 5 12 L 19 25 L 30 5 L 41 25 L 55 12 L 52 38 C 38 41, 22 41, 8 38"/></svg>Home of the Queen of Beets</span>
+        <span class="note hand" aria-hidden="true">look for the red door!<svg class="doodle" style="--d:2.3s" viewBox="0 0 60 50"><path pathLength="1" d="M52 4 C 34 6, 14 16, 10 44 M 2 34 L 10 46 L 21 37"/></svg></span>
+        </div>
+        <figcaption>Draft photo courtesy of VisitStAugustine.com. Replace with your own before launch.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <div class="band">
+    <div class="wrap">
+      <p>The <span class="marked">Caviar<svg class="doodle u" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 11 C 22 3, 38 19, 58 10 S 94 2, 114 11 S 154 19, 174 9 S 214 2, 234 11 S 274 18, 297 7"/></svg></span> of Root Vegetables</p>
+      <p>Royal Beets, made right here in Lincolnville</p>
+    </div>
+  </div>
+
+  <!-- ROYAL BEETS -->
+  <section class="beets" id="royal-beets" aria-labelledby="beets-title">
+    <div class="wrap">
+      <div class="beets-intro">
+        <div class="beets-story">
+          <p class="kicker hand">Royal Beets</p>
+          <h2 id="beets-title">Taking beets to a <span class="marked">whole new level<svg class="doodle u" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 9 C 40 15, 80 4, 120 10 C 160 16, 200 5, 240 10 C 262 13, 282 11, 297 6"/></svg></span></h2>
+          <p class="lead">Royal Beets started when Nyk Regine, an aspiring chef, was diagnosed with chronic iron deficiency anemia and went looking for food that would help.</p>
+          <p>Beets kept coming up in her research, but she couldn't stand the pickled kind. Then she realized the beets weren't the problem. The pickling was. So she started cooking her own.</p>
+          <p>Nearly twenty years of recipes later, those experiments fill the shelves at Corner Market. Everything is handcrafted and slow-cooked in small batches, from relish for your hot dog to beet truffles and cookies.</p>
+          <p class="signature">Nyk Regine, <span class="marked">the Queen of Beets<svg class="doodle u" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 11 C 18 2, 30 19, 46 10 S 74 2, 90 11 S 122 19, 138 9 S 170 2, 186 11 S 218 18, 234 9 S 266 3, 297 8"/></svg></span></p>
+        </div>
+        <div class="beets-figs">
+          <figure class="wide"><img src="img/beet-jars.jpg" alt="Jars of deep red Royal Beets spread lined up on a shelf at Corner Market." width="1400" height="426"><span class="jar-note hand" aria-hidden="true">the good stuff</span></figure>
+          <figure class="sq"><img src="img/beet-spiral.jpg" alt="A plate of spiral-cut beets tossed with herbs and sesame." width="536" height="355"></figure>
+          <figure class="sq"><img src="img/relish-hotdog.jpg" alt="A hot dog topped with chunky Royal Beets relish and mustard seeds." width="480" height="320"></figure>
+        </div>
+      </div>
+
+      <div class="count">
+        <b class="marked">60+<svg class="doodle o" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M34 9 C 85 0, 172 3, 193 23 C 206 43, 150 58, 96 56 C 40 55, 3 46, 6 28 C 9 12, 48 4, 112 6 C 142 7, 162 10, 176 15"/></svg></b>
+        <span>specialty foods Nyk has developed. Here are some you'll find in the shop.</span>
+      </div>
+
+      <ul class="lineup">
+        <li>
+          <h3>Regal Relishes</h3>
+          <p>Beet relishes with a little heat that take the earthiness out of beets. Made for hot dogs, sandwiches and anything that needs a topping.</p>
+          <span class="tag">The signature</span>
+        </li>
+        <li>
+          <h3>Beet Honey</h3>
+          <p>Royal Beets' take on honey. Ask for a taste when you visit.</p>
+          <span class="tag">Pantry</span>
+        </li>
+        <li>
+          <h3>Cranberry Beet Delight</h3>
+          <p>Beets and cranberries. "A holiday in your mouth," according to the label.</p>
+          <span class="tag">Seasonal favorite</span>
+        </li>
+        <li>
+          <h3>Beet truffles</h3>
+          <p>Beet truffles and datil pepper truffles, two flavors visitors keep writing about.</p>
+          <span class="tag">Sweets</span>
+        </li>
+        <li>
+          <h3>Root candies</h3>
+          <p>Candies made from beets, turnip root and rutabaga.</p>
+          <span class="tag">Sweets</span>
+        </li>
+        <li>
+          <h3>Beet cookies</h3>
+          <p>Beets in a cookie. Ask what's on the counter when you come in.</p>
+          <span class="tag">Baked</span>
+        </li>
+      </ul>
+
+      <div class="not-in">
+        <h3>What you won't find in the jar</h3>
+        <ul aria-label="Ingredients Royal Beets never uses">
+          <li>High fructose corn syrup</li>
+          <li>Preservatives</li>
+          <li>Additives</li>
+          <li>Artificial colors</li>
+          <li>Artificial flavors</li>
+        </ul>
+        <p class="note">Selection changes with the season. Prices are in the shop. <span class="draft">Add prices online?</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHELVES -->
+  <section class="shelves" id="shelves" aria-labelledby="shelves-title">
+    <div class="wrap">
+      <div class="shelves-head">
+        <h2 id="shelves-title">Lunch, sweets and something to take home</h2>
+        <p>Come for a jar of relish and stay for a plate. The kitchen menu changes all the time, so there's usually something new.</p>
+      </div>
+      <div class="shelf-grid">
+        <figure>
+          <img src="img/food.jpg" alt="A tray of golden, flaky phyllo triangles fresh from the oven." width="1300" height="780">
+          <figcaption>Draft photo courtesy of VisitStAugustine.com.</figcaption>
+        </figure>
+        <ul class="aisles">
+          <li><strong>The kitchen</strong><span>Plates to eat here or take with you, like collard greens, herb chicken, and black and pink beans. The menu changes often.</span></li>
+          <li><strong>Chocolates</strong><span>Exotic chocolates in flavors you won't see anywhere else.</span></li>
+          <li><strong>Baked goods</strong><span>Cookies, pastries and cupcakes, including red velvet.</span></li>
+          <li><strong>Natural foods</strong><span>Small-batch and natural pantry goods from local makers.</span></li>
+          <li><strong>Art and style</strong><span>Local art, jewelry, clothing and books.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILDING -->
+  <section class="building" id="building" aria-labelledby="building-title">
+    <div class="wrap building-grid">
+      <figure>
+        <img src="img/mural.jpg" alt="A long brick wall beside the market painted with a mural of Lincolnville neighbors, shopkeepers and children, with vintage signs for dairy, frozen and dry foods, and cold drinks." width="1300" height="780">
+        <figcaption>The Lincolnville mural. Draft photo courtesy of VisitStAugustine.com.</figcaption>
+      </figure>
+      <div class="building-copy">
+        <h2 id="building-title">A Lincolnville corner with a long memory</h2>
+        <p>Before it was a market, this building served the neighborhood as a public library, a barbershop and a pool hall.</p>
+        <p>Lincolnville is one of St. Augustine's oldest Black neighborhoods, and the market is meant to be a place to sit down and stay a while.</p>
+        <ol class="past" aria-label="What the building has been">
+          <li>Library</li><li>Barbershop</li><li>Pool hall</li><li>Corner Market</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT + ORDER -->
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div class="visit-info">
+        <h2 id="visit-title">Come by the corner</h2>
+        <dl class="facts">
+          <div>
+            <dt>Address</dt>
+            <dd>97 M.L. King Ave.<br>St. Augustine, FL 32084</dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>
+              <div class="hours">
+                <span>Tuesday to Saturday</span><span><span class="draft">Add opening times</span></span>
+                <span class="closed">Sunday and Monday</span><span class="closed">Closed</span>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd class="phone-row"><a href="tel:+14075955853" id="phone">(407) 595-5853</a> <button class="copy-btn" type="button" id="copy-phone">Copy</button></dd>
+          </div>
+          <div>
+            <dt>Parking</dt>
+            <dd style="font-size:1.05rem;font-weight:400">Street parking on M.L. King Ave. Outdoor tables out front.</dd>
+          </div>
+        </dl>
+        <div class="visit-actions">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=97+M.L.+King+Ave+St.+Augustine+FL+32084" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+
+      <form class="order" id="order-form" novalidate>
+        <h2>Set aside some Royal Beets</h2>
+        <p>Tell Nyk what you'd like and she'll get back to you to confirm. Pick it up at the market.</p>
+        <fieldset>
+          <legend>What are you interested in?</legend>
+          <div class="checks">
+            <label class="chip"><input type="checkbox" name="items" value="Regal Relishes" id="i-relish"><span>Regal Relishes</span></label>
+            <label class="chip"><input type="checkbox" name="items" value="Beet Honey" id="i-honey"><span>Beet Honey</span></label>
+            <label class="chip"><input type="checkbox" name="items" value="Cranberry Beet Delight" id="i-cran"><span>Cranberry Beet Delight</span></label>
+            <label class="chip"><input type="checkbox" name="items" value="Beet sweets" id="i-sweets"><span>Truffles and candies</span></label>
+            <label class="chip"><input type="checkbox" name="items" value="Gift or large order" id="i-gift"><span>Gift or large order</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+          <span class="err" id="e-name" hidden>Enter your name so Nyk knows who to set it aside for.</span>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="f-phone">Cell phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-contact">
+          </div>
+        </div>
+        <span class="err" id="e-contact" hidden>Add a phone number or an email address so Nyk can reach you.</span>
+        <div class="field">
+          <label for="f-note">Anything else? (optional)</label>
+          <textarea id="f-note" name="note" placeholder="Quantities, pickup day, gift notes"></textarea>
+        </div>
+        <div><button class="btn btn-primary" type="submit">Send request</button></div>
+        <p class="status" id="order-status" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="mini-sign">Corner Market</span>
+      <p>Corner Market at Lincolnville, 97 M.L. King Ave., St. Augustine, FL 32084. Home of Royal Beets.</p>
+    </div>
+    <p>Looking for the original Royal Beets site? Visit <a href="https://www.royalbeets.com" target="_blank" rel="noopener">royalbeets.com</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Hand-drawn marks draw themselves in when scrolled into view
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduce) {
+    document.documentElement.classList.add('js-draw');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('.doodle:not(.hover-ring)').forEach(function (d) { io.observe(d); });
+  }
+
+  // Copy phone number
+  var copyBtn = document.getElementById('copy-phone');
+  copyBtn.addEventListener('click', function () {
+    var text = '(407) 595-5853';
+    var done = function () { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1800); };
+    try {
+      navigator.clipboard.writeText(text).then(done, function () { selectPhone(); });
+    } catch (e) { selectPhone(); }
+  });
+  function selectPhone() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('phone'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    copyBtn.textContent = 'Selected';
+  }
+
+  // Order request form (draft: not connected to email yet)
+  var form = document.getElementById('order-form');
+  var status = document.getElementById('order-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.elements.name, phone = form.elements.phone, email = form.elements.email;
+    var eName = document.getElementById('e-name'), eContact = document.getElementById('e-contact');
+    var ok = true;
+    var nameBad = !name.value.trim();
+    name.setAttribute('aria-invalid', nameBad); eName.hidden = !nameBad; if (nameBad) ok = false;
+    var contactBad = !phone.value.trim() && !email.value.trim();
+    var emailBad = email.value.trim() && !email.checkValidity();
+    eContact.textContent = emailBad ? 'Check the email address. It should look like name@example.com.' : 'Add a phone number or an email address so Nyk can reach you.';
+    var cBad = contactBad || emailBad;
+    eContact.hidden = !cBad; email.setAttribute('aria-invalid', !!cBad); phone.setAttribute('aria-invalid', !!contactBad);
+    if (cBad) ok = false;
+    if (!ok) { (nameBad ? name : (emailBad ? email : phone)).focus(); status.hidden = true; return; }
+    var items = Array.prototype.filter.call(form.querySelectorAll('input[name="items"]'), function (c) { return c.checked; }).map(function (c) { return c.value; });
+    status.hidden = false;
+    status.textContent = 'Preview only: this form isn’t connected yet, so nothing was sent. ' +
+      'Your request was for ' + (items.length ? items.join(', ') : 'Royal Beets') + '. For now, call (407) 595-5853 to place it.';
+  });
+})();
+</script>
